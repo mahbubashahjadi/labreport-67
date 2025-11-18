@@ -1,0 +1,28 @@
+
+#include <stdio.h>
+
+int main(){
+    int a[10][10], r,c,i,j,temp;
+
+    printf("Enter rows & columns: ");
+    scanf("%d %d",&r,&c);
+
+    printf("Enter matrix:\n");
+    for(i=0;i<r;i++)
+        for(j=0;j<c;j++)
+            scanf("%d",&a[i][j]);
+
+    // swap first and last column
+    for(i=0;i<r;i++){
+        temp = a[i][0];
+        a[i][0] = a[i][c-1];
+        a[i][c-1] = temp;
+    }
+
+    printf("\nMatrix after column swap:\n");
+    for(i=0;i<r;i++){
+        for(j=0;j<c;j++)
+            printf("%d ",a[i][j]);
+        printf("\n");
+    }
+}
