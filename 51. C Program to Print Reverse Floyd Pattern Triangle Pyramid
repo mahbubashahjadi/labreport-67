@@ -1,0 +1,19 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n;
+    scanf("%d", &n);
+    int num = 1;
+    int *row;
+    for(int i = 1; i <= n; i++) {
+        row = (int*)malloc(i * sizeof(int));
+        for(int j = 0; j < i; j++) {
+            row[j] = num++;
+        }
+        for(int j = i - 1; j >= 0; j--) printf("%d ", row[j]);
+        printf("\n");
+        free(row);
+    }
+    return 0;
+}
