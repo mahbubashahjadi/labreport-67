@@ -1,0 +1,12 @@
+#include <stdio.h>
+
+int main() {
+    char s[100];
+    gets(s);
+
+    int len = 0;
+    while(s[len] != '\0') len++;
+
+    printf("Length = %d", len);
+    return 0;
+}
