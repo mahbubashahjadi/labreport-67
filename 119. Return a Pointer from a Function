@@ -1,0 +1,13 @@
+
+#include <stdio.h>
+
+int* getValue() {
+    static int x = 50;
+    return &x;
+}
+
+int main() {
+    int *p = getValue();
+    printf("Value: %d", *p);
+    return 0;
+}
