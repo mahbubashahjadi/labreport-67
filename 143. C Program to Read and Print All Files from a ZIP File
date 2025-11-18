@@ -1,0 +1,23 @@
+#include <stdio.h>
+#include <zip.h>
+
+int main() {
+    int err = 0;
+    struct zip *za = zip_open("test.zip", 0, &err);
+
+    if (!za) {
+        printf("Cannot open zip file.\n");
+        return 1;
+    }
+
+    zip_int64_t num_files = zip_get_num_entries(za, 0);
+
+    printf("Files in ZIP:\n");
+    for (zip_int64_t i = 0; i < num_files; i++) {
+        const char *name = zip_get_name(za, i, 0);
+        printf("%s\n", name);
+    }
+
+    zip_close(za);
+    return 0;
+}
