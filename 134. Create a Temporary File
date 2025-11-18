@@ -1,0 +1,11 @@
+
+#include <stdio.h>
+
+int main() {
+    FILE *fp = tmpfile();
+
+    if(fp)
+        printf("Temporary file created.\n");
+
+    return 0;
+}
