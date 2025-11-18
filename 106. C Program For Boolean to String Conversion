@@ -1,0 +1,15 @@
+
+#include <stdio.h>
+
+int main() {
+    int boolean;
+    printf("Enter 1 (true) or 0 (false): ");
+    scanf("%d", &boolean);
+
+    if(boolean)
+        printf("String: true");
+    else
+        printf("String: false");
+
+    return 0;
+}
