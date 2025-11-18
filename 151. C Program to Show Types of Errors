@@ -1,0 +1,12 @@
+
+
+// Compile-time Error:
+// printf("Hello" )   // Missing semicolon
+
+// Logical Error:
+#include <stdio.h>
+int main() {
+    int a = 5, b = 2;
+    printf("Average = %d", (a + b) / 2); // Wrong average logic
+    return 0;
+}
