@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+double determinant(double **mat, int n) {
+    if(n == 1) return mat[0][0];
+    if(n == 2) return mat[0][0]*mat[1][1] - mat[0][1]*mat[1][0];
+
+    double det = 0;
+    double **sub = (double**)malloc((n-1)*sizeof(double*));
+    for(int i=0;i<n-1;i++) sub[i] = (double*)malloc((n-1)*sizeof(double));
+
+    for(int col = 0; col < n; col++) {
+        // build submatrix excluding row 0 and column col
+        for(int i=1;i<n;i++) {
+            int subi = i-1;
+            int subj = 0;
+            for(int j=0;j<n;j++) {
+                if(j == col) continue;
+                sub[subi][subj++] = mat[i][j];
+            }
+        }
+        double sign = (col % 2 == 0) ? 1 : -1;
+        det += sign * mat[0][col] * determinant(sub, n-1);
+    }
+    for(int i=0;i<n-1;i++) free(sub[i]);
+    free(sub);
+    return det;
+}
+
+int main() {
+    int n; scanf("%d",&n);
+    double **mat = (double**)malloc(n * sizeof(double*));
+    for(int i=0;i<n;i++){ mat[i] = (double*)malloc(n * sizeof(double)); }
+    for(int i=0;i<n;i++) for(int j=0;j<n;j++) scanf("%lf",&mat[i][j]);
+    double det = determinant(mat, n);
+    printf("%.2lf\n", det);
+    for(int i=0;i<n;i++) free(mat[i]); free(mat);
+    return 0;
+}
