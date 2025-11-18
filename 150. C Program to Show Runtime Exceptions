@@ -1,0 +1,9 @@
+#include <stdio.h>
+
+int main() {
+    int a = 10, b = 0;
+    int c = a / b; // runtime error: divide by zero
+
+    printf("Result: %d", c);
+    return 0;
+}
