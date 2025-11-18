@@ -15,3 +15,7 @@ int main() {
         a = b;
         b = next;
     }
+
+    printf("Sum = %d", sum);
+    return 0;
+}
