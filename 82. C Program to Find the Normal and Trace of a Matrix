@@ -1,0 +1,34 @@
+#include <stdio.h>
+#include <math.h>
+
+int main() {
+    int a[10][10], i, j, n;
+    float trace = 0, normal = 0;
+
+    printf("Enter the size of the square matrix (n): ");
+    scanf("%d", &n);
+
+    printf("Enter the elements of the matrix:\n");
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    // Calculate Trace and Normal
+    for(i = 0; i < n; i++) {
+        for(j = 0; j < n; j++) {
+            normal += a[i][j] * a[i][j];
+            if(i == j) {
+                trace += a[i][j];
+            }
+        }
+    }
+
+    normal = sqrt(normal);
+
+    printf("\nTrace of Matrix = %.2f\n", trace);
+    printf("Normal of Matrix = %.2f\n", normal);
+
+    return 0;
+}
