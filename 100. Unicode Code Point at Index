@@ -1,0 +1,13 @@
+
+#include <stdio.h>
+
+int main() {
+    char s[200];
+    int index;
+
+    gets(s);
+    scanf("%d", &index);
+
+    printf("Unicode at index %d = %d", index, (unsigned char)s[index]);
+    return 0;
+}
