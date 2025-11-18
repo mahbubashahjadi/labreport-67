@@ -1,0 +1,16 @@
+
+#include <stdio.h>
+
+int main() {
+    int octal, decimal = 0, base = 1;
+    scanf("%d", &octal);
+
+    while(octal > 0) {
+        int d = octal % 10;
+        decimal += d * base;
+        base *= 8;
+        octal /= 10;
+    }
+    printf("%d", decimal);
+    return 0;
+}
