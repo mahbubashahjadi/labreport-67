@@ -1,0 +1,24 @@
+
+#include <stdio.h>
+
+int main() {
+    char s[300];
+    gets(s);
+
+    int i=0;
+
+    printf("Words:\n");
+
+    while(s[i]) {
+        if(s[i] != ' ') {
+            while(s[i] && s[i] != ' ') {
+                printf("%c", s[i]);
+                i++;
+            }
+            printf("\n");
+        }
+        else i++;
+    }
+
+    return 0;
+}
